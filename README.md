@@ -1,5 +1,7 @@
 ## App: Next JS - HarmonyHR test-task
 
+### [Online version of the web application](https://harmony-hr-test-task.vercel.app)
+
 ### Run on a local host
 
 1. Clone the repository
@@ -24,6 +26,12 @@ npm install
 npm run dev
 ```
 
-node v20.14.0
+**login details:**
 
-npm v10.2.0
+- email: john@mail.com
+
+- password: changeme
+
+**node v20.14.0**
+
+**npm v10.2.0**
