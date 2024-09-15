@@ -18,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body
+        suppressHydrationWarning={true}
+        className={`${inter.className} antialiased`}
+      >
         <ApolloWrapper>{children}</ApolloWrapper>
         <Toaster />
       </body>

@@ -8,16 +8,18 @@ import {
 import { IGraphqlLogin } from '@/app/types';
 import { useMutation } from '@apollo/client';
 import { useEffect, useState } from 'react';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { Login } from '@/app/components';
+import useStore from '@/app/store';
 
 export default function LoginForm() {
-  const [mutateLogin, { data, loading, error }] =
-    useMutation<IGraphqlLogin>(LOGIN);
+  const [mutateLogin, { data, error }] = useMutation<IGraphqlLogin>(LOGIN);
 
+  const logout = useStore((state) => state.logout);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const router = useRouter();
 
   const loginHandler = () => {
     mutateLogin({ variables: { email, password } });
@@ -25,12 +27,13 @@ export default function LoginForm() {
 
   useEffect(() => {
     removeTokenfromLocalStorage('access_token');
+    logout();
   }, []);
 
   useEffect(() => {
     if (data) {
       setTokenToLocalStorage('access_token', data.login.access_token);
-      redirect('/');
+      router.push('/');
     }
   }, [data]);
 
