@@ -1,37 +1,30 @@
+import { navMenu } from '@/app/constants';
 import { Select, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 type Props = {
   className: string;
 };
 
-const menu: string[] = [
-  'Personal',
-  'Job',
-  'Time Off',
-  'Emergency',
-  'Documents',
-  'Notes',
-  'Benefits',
-  'Training',
-  'Assets',
-];
-
 export const Nav = ({ className }: Props) => {
   return (
-    <div className={className}>
-      {menu.map((el, index) => (
-        <button
-          className={`p-4 text-sm ${index === 2 ? 'bg-[#FCFCFE]' : ''}`}
-          key={index}
-        >
-          {el}
-        </button>
-      ))}
+    <nav className={className}>
+      <ul className="flex">
+        {navMenu.map((el, index) => (
+          <li
+            className={`p-4 text-sm hover:cursor-pointer ${
+              index === 2 ? 'bg-[#FCFCFE]' : ''
+            }`}
+            key={index}
+          >
+            {el}
+          </li>
+        ))}
+      </ul>
       <Select>
         <SelectTrigger className="w-[90px] text-sm bg-[#DAE6F2]">
           <SelectValue placeholder="More" />
         </SelectTrigger>
       </Select>
-    </div>
+    </nav>
   );
 };

@@ -1,12 +1,8 @@
+import { ITimeOffBlogData } from '@/app/types';
 import Image from 'next/image';
 
 type Props = {
-  data: {
-    icon: string;
-    date: string;
-    point: boolean;
-    overview: string;
-  }[];
+  data: ITimeOffBlogData[];
 };
 
 export const TimeOffUpcoming = ({ data }: Props) => {

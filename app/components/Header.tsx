@@ -5,15 +5,7 @@ import { Button } from '@/components/ui/button';
 import useStore from '@/app/store';
 import { removeTokenfromLocalStorage } from '@/app/helpers/localStorage.helper';
 import { Search } from '@/components/ui/search';
-
-const menu: string[] = [
-  'Home',
-  'My Info',
-  'People',
-  'Hiring',
-  'Reports',
-  'Files',
-];
+import { headerMenu } from '@/app/constants';
 
 export const Header = () => {
   const avatar = useStore((state) => state.user?.avatar);
@@ -29,18 +21,20 @@ export const Header = () => {
   return (
     <header className="flex items-center gap-8 sm:gap-[60px] bg-[#FCFCFE] px-2 sm:px-6 w-full h-[50px] xl:items-start xl:pt-8 md:h-[86px]">
       <h3 className="text-sm sm:text-xl font-semibold">HarmonyHR</h3>
-      <div className="hidden xl:flex">
-        {menu.map((el, index) => (
-          <button
-            className={`w-24 h-[54px] rounded-t-lg  ${
-              index === 1 ? 'bg-[#DAE6F2]' : ''
-            }`}
-            key={index}
-          >
-            {el}
-          </button>
-        ))}
-      </div>
+      <nav className="hidden xl:flex">
+        <ul className="flex">
+          {headerMenu.map((el, index) => (
+            <li
+              className={`text-center p-4 w-24 h-[54px] rounded-t-lg hover:cursor-pointer ${
+                index === 1 ? 'bg-[#DAE6F2]' : ''
+              }`}
+              key={index}
+            >
+              {el}
+            </li>
+          ))}
+        </ul>
+      </nav>
       <Search
         startIcon={SearchSVG}
         className="border-black rounded-2xl focus:border-0"

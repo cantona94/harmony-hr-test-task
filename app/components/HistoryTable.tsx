@@ -8,59 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-
-interface IData {
-  date: string;
-  description: string;
-  usedDays: string;
-  earnedDays: string;
-  balance: string;
-}
-
-const data: IData[] = [
-  {
-    date: '23/05/2024',
-    description: 'Accrual for 23/05/2024 to 20/11/2024',
-    usedDays: '',
-    earnedDays: '3.00',
-    balance: '3.00',
-  },
-  {
-    date: '23/05/2024',
-    description: 'Accrual for 23/05/2024 to 20/11/2024',
-    usedDays: '-6',
-    earnedDays: '',
-    balance: '3.00',
-  },
-  {
-    date: '23/05/2024',
-    description: 'Accrual for 23/05/2024 to 20/11/2024',
-    usedDays: '',
-    earnedDays: '3.00',
-    balance: '3.00',
-  },
-  {
-    date: '23/05/2024',
-    description: 'Accrual for 23/05/2024 to 20/11/2024',
-    usedDays: '',
-    earnedDays: '3.00',
-    balance: '3.00',
-  },
-  {
-    date: '23/05/2024',
-    description: 'Accrual for 23/05/2024 to 20/11/2024',
-    usedDays: '-6',
-    earnedDays: '',
-    balance: '3.00',
-  },
-  {
-    date: '23/05/2024',
-    description: 'Accrual for 23/05/2024 to 20/11/2024',
-    usedDays: '',
-    earnedDays: '3.00',
-    balance: '3.00',
-  },
-];
+import { tableData } from '@/app/constants';
 
 export const HistoryTable = () => {
   return (
@@ -118,7 +66,7 @@ export const HistoryTable = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map((el, index) => (
+          {tableData.map((el, index) => (
             <TableRow
               className={`h-8 font-medium text-[6px] sm:text-xs md:text-sm leading-4 border-b-[2px] border-b-[#7C96B1] ${
                 index === 3 ? 'bg-[#DAE6F2]' : ''

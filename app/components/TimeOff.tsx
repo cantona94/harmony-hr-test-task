@@ -1,34 +1,13 @@
 import { HistoryTable } from '@/app/components/HistoryTable';
 import { TimeOffBlog } from '@/app/components/TimeOffBlog';
 import { TimeOffUpcoming } from '@/app/components/TimeOffUpcoming';
+import { timeOffBlogData } from '@/app/constants';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
 type Props = {
   className: string;
 };
-
-interface IData {
-  icon: string;
-  date: string;
-  point: boolean;
-  overview: string;
-}
-
-const data: IData[] = [
-  {
-    icon: 'medicine',
-    date: 'Jan 27',
-    point: true,
-    overview: '1 dey of Sick',
-  },
-  {
-    icon: 'piggyBank',
-    date: 'Jul 4',
-    point: false,
-    overview: 'Independence Day',
-  },
-];
 
 export const TimeOff = ({ className }: Props) => {
   return (
@@ -80,7 +59,7 @@ export const TimeOff = ({ className }: Props) => {
           overview="Comp/in Lieu Time Flexible Policy"
         />
       </div>
-      <TimeOffUpcoming data={data} />
+      <TimeOffUpcoming data={timeOffBlogData} />
       <HistoryTable />
     </div>
   );
